@@ -1,0 +1,15 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+healthcheckPath = "/health"
+healthcheckTimeout = 30
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
+
+# Railway provides DATABASE_URL and REDIS_URL automatically once you add
+# the Postgres and Redis plugins to this project, in a format
+# SQLAlchemy/redis-py can use directly. Set the remaining variables
+# (STRIPE_*, ZEROBOUNCE_API_KEY, DEV_API_KEY, etc. -- see .env.example) in
+# the Railway dashboard's Variables tab. Don't commit a real .env file.
